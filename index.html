@@ -37,9 +37,27 @@
 			cursor: pointer
 		}
 
+		.lightbox__caption {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			padding: .75rem 1rem 1.1rem;
+			color: #fff;
+			text-align: center;
+			font-size: .95rem;
+			background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .7));
+			text-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+			max-width: min(92vw, 900px);
+			margin: 0 auto;
+		}
+
 		:root {
 			--text-color: rgb(55, 53, 47);
 			--background-color: #ffffff;
+			--cap-fg: rgba(55, 53, 47, .78);
+			--cap-bg: rgba(55, 53, 47, .05);
+			--cap-br: rgba(55, 53, 47, .14);
 		}
 
 		* {
@@ -55,7 +73,28 @@
 			line-height: 1.5;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
+			counter-reset: fig;
 		}
+
+		figure.image {
+			margin: 1rem 0;
+		}
+
+		figure.image figcaption {
+			margin-top: .5rem;
+			padding: .5rem .75rem;
+			font-size: .9rem;
+			color: #444;
+			background: #f8f8f8;
+			border-radius: 6px;
+		}
+
+		figure.image figcaption::before {
+			content: "· ";
+			font-weight: bold;
+			color: #666;
+		}
+
 
 		.document-container {
 			max-width: 900px;
