@@ -1,0 +1,1548 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Prueba tecnica - DNC COFFEE</title>
+	<style>
+		/* cspell:disable-file */
+		/* webkit printing magic: print all background colors */
+		html {
+			-webkit-print-color-adjust: exact;
+		}
+
+		* {
+			box-sizing: border-box;
+			-webkit-print-color-adjust: exact;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		@media only screen {
+			body {
+				margin: 2em auto;
+				max-width: 900px;
+				color: rgb(55, 53, 47);
+			}
+		}
+
+		body {
+			line-height: 1.5;
+			white-space: pre-wrap;
+		}
+
+		a,
+		a.visited {
+			color: inherit;
+			text-decoration: underline;
+		}
+
+		.pdf-relative-link-path {
+			font-size: 80%;
+			color: #444;
+		}
+
+		h1,
+		h2,
+		h3 {
+			letter-spacing: -0.01em;
+			line-height: 1.2;
+			font-weight: 600;
+			margin-bottom: 0;
+		}
+
+		.page-title {
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin-top: 0;
+			margin-bottom: 0.75em;
+		}
+
+		h1 {
+			font-size: 1.875rem;
+			margin-top: 1.875rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+			margin-top: 1.5rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+			margin-top: 1.25rem;
+		}
+
+		.source {
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			padding: 1.5em;
+			word-break: break-all;
+		}
+
+		.callout {
+			border-radius: 3px;
+			padding: 1rem;
+		}
+
+		figure {
+			margin: 1.25em 0;
+			page-break-inside: avoid;
+		}
+
+		figcaption {
+			opacity: 0.5;
+			font-size: 85%;
+			margin-top: 0.5em;
+		}
+
+		mark {
+			background-color: transparent;
+		}
+
+		.indented {
+			padding-left: 1.5em;
+		}
+
+		hr {
+			background: transparent;
+			display: block;
+			width: 100%;
+			height: 1px;
+			visibility: visible;
+			border: none;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		@media only print {
+			img {
+				max-height: 100vh;
+				object-fit: contain;
+			}
+		}
+
+		@page {
+			margin: 1in;
+		}
+
+		.collection-content {
+			font-size: 0.875rem;
+		}
+
+		.collection-content td {
+			white-space: pre-wrap;
+			word-break: break-word;
+		}
+
+		.column-list {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.column {
+			padding: 0 1em;
+		}
+
+		.column:first-child {
+			padding-left: 0;
+		}
+
+		.column:last-child {
+			padding-right: 0;
+		}
+
+		.table_of_contents-item {
+			display: block;
+			font-size: 0.875rem;
+			line-height: 1.3;
+			padding: 0.125rem;
+		}
+
+		.table_of_contents-indent-1 {
+			margin-left: 1.5rem;
+		}
+
+		.table_of_contents-indent-2 {
+			margin-left: 3rem;
+		}
+
+		.table_of_contents-indent-3 {
+			margin-left: 4.5rem;
+		}
+
+		.table_of_contents-link {
+			text-decoration: none;
+			opacity: 0.7;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid rgba(55, 53, 47, 0.09);
+			border-collapse: collapse;
+		}
+
+		table {
+			border-left: none;
+			border-right: none;
+		}
+
+		th,
+		td {
+			font-weight: normal;
+			padding: 0.25em 0.5em;
+			line-height: 1.5;
+			min-height: 1.5em;
+			text-align: left;
+		}
+
+		th {
+			color: rgba(55, 53, 47, 0.6);
+		}
+
+		ol,
+		ul {
+			margin: 0;
+			margin-block-start: 0.6em;
+			margin-block-end: 0.6em;
+		}
+
+		li>ol:first-child,
+		li>ul:first-child {
+			margin-block-start: 0.6em;
+		}
+
+		ul>li {
+			list-style: disc;
+		}
+
+		ul.to-do-list {
+			padding-inline-start: 0;
+		}
+
+		ul.to-do-list>li {
+			list-style: none;
+		}
+
+		.to-do-children-checked {
+			text-decoration: line-through;
+			opacity: 0.375;
+		}
+
+		ul.toggle>li {
+			list-style: none;
+		}
+
+		ul {
+			padding-inline-start: 1.7em;
+		}
+
+		ul>li {
+			padding-left: 0.1em;
+		}
+
+		ol {
+			padding-inline-start: 1.6em;
+		}
+
+		ol>li {
+			padding-left: 0.2em;
+		}
+
+		.mono ol {
+			padding-inline-start: 2em;
+		}
+
+		.mono ol>li {
+			text-indent: -0.4em;
+		}
+
+		.toggle {
+			padding-inline-start: 0em;
+			list-style-type: none;
+		}
+
+		/* Indent toggle children */
+		.toggle>li>details {
+			padding-left: 1.7em;
+		}
+
+		.toggle>li>details>summary {
+			margin-left: -1.1em;
+		}
+
+		.selected-value {
+			display: inline-block;
+			padding: 0 0.5em;
+			background: rgba(206, 205, 202, 0.5);
+			border-radius: 3px;
+			margin-right: 0.5em;
+			margin-top: 0.3em;
+			margin-bottom: 0.3em;
+			white-space: nowrap;
+		}
+
+		.collection-title {
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+		.page-description {
+			margin-bottom: 2em;
+		}
+
+		.simple-table {
+			margin-top: 1em;
+			font-size: 0.875rem;
+			empty-cells: show;
+		}
+
+		.simple-table td {
+			height: 29px;
+			min-width: 120px;
+		}
+
+		.simple-table th {
+			height: 29px;
+			min-width: 120px;
+		}
+
+		.simple-table-header-color {
+			background: rgb(247, 246, 243);
+			color: black;
+		}
+
+		.simple-table-header {
+			font-weight: 500;
+		}
+
+		time {
+			opacity: 0.5;
+		}
+
+		.icon {
+			display: inline-block;
+			max-width: 1.2em;
+			max-height: 1.2em;
+			text-decoration: none;
+			vertical-align: text-bottom;
+			margin-right: 0.5em;
+		}
+
+		img.icon {
+			border-radius: 3px;
+		}
+
+		.user-icon {
+			width: 1.5em;
+			height: 1.5em;
+			border-radius: 100%;
+			margin-right: 0.5rem;
+		}
+
+		.user-icon-inner {
+			font-size: 0.8em;
+		}
+
+		.text-icon {
+			border: 1px solid #000;
+			text-align: center;
+		}
+
+		.page-cover-image {
+			display: block;
+			object-fit: cover;
+			width: 100%;
+			max-height: 30vh;
+		}
+
+		.page-header-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+		}
+
+		.page-header-icon-with-cover {
+			margin-top: -0.72em;
+			margin-left: 0.07em;
+		}
+
+		.page-header-icon img {
+			border-radius: 3px;
+		}
+
+		.link-to-page {
+			margin: 1em 0;
+			padding: 0;
+			border: none;
+			font-weight: 500;
+		}
+
+		p>.user {
+			opacity: 0.5;
+		}
+
+		td>.user,
+		td>time {
+			white-space: nowrap;
+		}
+
+		input[type="checkbox"] {
+			transform: scale(1.5);
+			margin-right: 0.6em;
+			vertical-align: middle;
+		}
+
+		p {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
+
+		.image {
+			border: none;
+			margin: 1.5em 0;
+			padding: 0;
+			border-radius: 0;
+			text-align: center;
+		}
+
+		.code,
+		code {
+			background: rgba(135, 131, 120, 0.15);
+			border-radius: 3px;
+			padding: 0.2em 0.4em;
+			border-radius: 3px;
+			font-size: 85%;
+			tab-size: 2;
+		}
+
+		code {
+			color: #eb5757;
+		}
+
+		.code {
+			padding: 1.5em 1em;
+		}
+
+		.code-wrap {
+			white-space: pre-wrap;
+			word-break: break-all;
+		}
+
+		.code>code {
+			background: none;
+			padding: 0;
+			font-size: 100%;
+			color: inherit;
+		}
+
+		blockquote {
+			font-size: 1em;
+			margin: 1em 0;
+			padding-left: 1em;
+			border-left: 3px solid rgb(55, 53, 47);
+		}
+
+		blockquote.quote-large {
+			font-size: 1.25em;
+		}
+
+		.bookmark {
+			text-decoration: none;
+			max-height: 8em;
+			padding: 0;
+			display: flex;
+			width: 100%;
+			align-items: stretch;
+		}
+
+		.bookmark-title {
+			font-size: 0.85em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 1.75em;
+			white-space: nowrap;
+		}
+
+		.bookmark-text {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.bookmark-info {
+			flex: 4 1 180px;
+			padding: 12px 14px 14px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.bookmark-image {
+			width: 33%;
+			flex: 1 1 180px;
+			display: block;
+			position: relative;
+			object-fit: cover;
+			border-radius: 1px;
+		}
+
+		.bookmark-description {
+			color: rgba(55, 53, 47, 0.6);
+			font-size: 0.75em;
+			overflow: hidden;
+			max-height: 4.5em;
+			word-break: break-word;
+		}
+
+		.bookmark-href {
+			font-size: 0.75em;
+			margin-top: 0.25em;
+		}
+
+		.sans {
+			font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+		}
+
+		.code {
+			font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace;
+		}
+
+		.serif {
+			font-family: Lyon-Text, Georgia, ui-serif, serif;
+		}
+
+		.mono {
+			font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+		}
+
+		.pdf .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .sans {
+			font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR';
+		}
+
+		.pdf .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .code {
+			font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+		}
+
+		.pdf .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR';
+		}
+
+		.pdf .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP';
+		}
+
+		.pdf:lang(zh-CN) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC';
+		}
+
+		.pdf:lang(zh-TW) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC';
+		}
+
+		.pdf:lang(ko-KR) .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR';
+		}
+
+		.highlight-default {
+			color: rgba(50, 48, 44, 1);
+		}
+
+		.highlight-gray {
+			color: rgba(115, 114, 110, 1);
+			fill: rgba(115, 114, 110, 1);
+		}
+
+		.highlight-brown {
+			color: rgba(159, 107, 83, 1);
+			fill: rgba(159, 107, 83, 1);
+		}
+
+		.highlight-orange {
+			color: rgba(217, 115, 13, 1);
+			fill: rgba(217, 115, 13, 1);
+		}
+
+		.highlight-yellow {
+			color: rgba(203, 145, 47, 1);
+			fill: rgba(203, 145, 47, 1);
+		}
+
+		.highlight-teal {
+			color: rgba(68, 131, 97, 1);
+			fill: rgba(68, 131, 97, 1);
+		}
+
+		.highlight-blue {
+			color: rgba(51, 126, 169, 1);
+			fill: rgba(51, 126, 169, 1);
+		}
+
+		.highlight-purple {
+			color: rgba(144, 101, 176, 1);
+			fill: rgba(144, 101, 176, 1);
+		}
+
+		.highlight-pink {
+			color: rgba(193, 76, 138, 1);
+			fill: rgba(193, 76, 138, 1);
+		}
+
+		.highlight-red {
+			color: rgba(205, 60, 58, 1);
+			fill: rgba(205, 60, 58, 1);
+		}
+
+		.highlight-default_background {
+			color: rgba(50, 48, 44, 1);
+		}
+
+		.highlight-gray_background {
+			background: rgba(248, 248, 247, 1);
+		}
+
+		.highlight-brown_background {
+			background: rgba(244, 238, 238, 1);
+		}
+
+		.highlight-orange_background {
+			background: rgba(251, 236, 221, 1);
+		}
+
+		.highlight-yellow_background {
+			background: rgba(251, 243, 219, 1);
+		}
+
+		.highlight-teal_background {
+			background: rgba(237, 243, 236, 1);
+		}
+
+		.highlight-blue_background {
+			background: rgba(231, 243, 248, 1);
+		}
+
+		.highlight-purple_background {
+			background: rgba(248, 243, 252, 1);
+		}
+
+		.highlight-pink_background {
+			background: rgba(252, 241, 246, 1);
+		}
+
+		.highlight-red_background {
+			background: rgba(253, 235, 236, 1);
+		}
+
+		.block-color-default {
+			color: inherit;
+			fill: inherit;
+		}
+
+		.block-color-gray {
+			color: rgba(115, 114, 110, 1);
+			fill: rgba(115, 114, 110, 1);
+		}
+
+		.block-color-brown {
+			color: rgba(159, 107, 83, 1);
+			fill: rgba(159, 107, 83, 1);
+		}
+
+		.block-color-orange {
+			color: rgba(217, 115, 13, 1);
+			fill: rgba(217, 115, 13, 1);
+		}
+
+		.block-color-yellow {
+			color: rgba(203, 145, 47, 1);
+			fill: rgba(203, 145, 47, 1);
+		}
+
+		.block-color-teal {
+			color: rgba(68, 131, 97, 1);
+			fill: rgba(68, 131, 97, 1);
+		}
+
+		.block-color-blue {
+			color: rgba(51, 126, 169, 1);
+			fill: rgba(51, 126, 169, 1);
+		}
+
+		.block-color-purple {
+			color: rgba(144, 101, 176, 1);
+			fill: rgba(144, 101, 176, 1);
+		}
+
+		.block-color-pink {
+			color: rgba(193, 76, 138, 1);
+			fill: rgba(193, 76, 138, 1);
+		}
+
+		.block-color-red {
+			color: rgba(205, 60, 58, 1);
+			fill: rgba(205, 60, 58, 1);
+		}
+
+		.block-color-default_background {
+			color: inherit;
+			fill: inherit;
+		}
+
+		.block-color-gray_background {
+			background: rgba(248, 248, 247, 1);
+		}
+
+		.block-color-brown_background {
+			background: rgba(244, 238, 238, 1);
+		}
+
+		.block-color-orange_background {
+			background: rgba(251, 236, 221, 1);
+		}
+
+		.block-color-yellow_background {
+			background: rgba(251, 243, 219, 1);
+		}
+
+		.block-color-teal_background {
+			background: rgba(237, 243, 236, 1);
+		}
+
+		.block-color-blue_background {
+			background: rgba(231, 243, 248, 1);
+		}
+
+		.block-color-purple_background {
+			background: rgba(248, 243, 252, 1);
+		}
+
+		.block-color-pink_background {
+			background: rgba(252, 241, 246, 1);
+		}
+
+		.block-color-red_background {
+			background: rgba(253, 235, 236, 1);
+		}
+
+		.select-value-color-default {
+			background-color: rgba(42, 28, 0, 0.07);
+		}
+
+		.select-value-color-gray {
+			background-color: rgba(28, 19, 1, 0.11);
+		}
+
+		.select-value-color-brown {
+			background-color: rgba(127, 51, 0, 0.156);
+		}
+
+		.select-value-color-orange {
+			background-color: rgba(196, 88, 0, 0.203);
+		}
+
+		.select-value-color-yellow {
+			background-color: rgba(209, 156, 0, 0.282);
+		}
+
+		.select-value-color-green {
+			background-color: rgba(0, 96, 38, 0.156);
+		}
+
+		.select-value-color-blue {
+			background-color: rgba(0, 99, 174, 0.172);
+		}
+
+		.select-value-color-purple {
+			background-color: rgba(92, 0, 163, 0.141);
+		}
+
+		.select-value-color-pink {
+			background-color: rgba(183, 0, 78, 0.152);
+		}
+
+		.select-value-color-red {
+			background-color: rgba(206, 24, 0, 0.164);
+		}
+
+		.checkbox {
+			display: inline-flex;
+			vertical-align: text-bottom;
+			width: 16;
+			height: 16;
+			background-size: 16px;
+			margin-left: 2px;
+			margin-right: 5px;
+		}
+
+		.checkbox-on {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+
+		.checkbox-off {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+	</style>
+</head>
+
+<body>
+	<article id="26a16835-31a7-806c-bb74-cace7956c3f8" class="page sans">
+		<header>
+			<h1 class="page-title">Prueba tecnica - DNC COFFEE</h1>
+			<p class="page-description"></p>
+		</header>
+		<div class="page-body">
+			<h2 id="26a16835-31a7-8037-8314-ff80cb6a40dd" class="">Puntos importantes</h2>
+			<ul id="26a16835-31a7-802f-8d42-fecf00f9edea" class="bulleted-list">
+				<li style="list-style-type:disc">🔗 <strong>Repositorio GitHub:</strong> <a
+						href="https://github.com/DavidDevGt/mid-dev-php-test">https://github.com/DavidDevGt/mid-dev-php-test</a>
+				</li>
+			</ul>
+			<figure id="26a16835-31a7-80d8-afa9-e3978bf59827" class="image"><a href="image.png"><img
+						style="width:709.9750366210938px" src="image.png" /></a>
+				<figcaption>Para esta prueba técnica, se utilizará un contador sencillo con el fin de medir el tiempo
+					total de desarrollo o analisis</figcaption>
+			</figure>
+			<h2 id="26a16835-31a7-80b0-b7eb-cabd1484e91f" class=""><strong>Índice</strong></h2>
+			<ol type="1" id="26a16835-31a7-800d-a0f2-f34f5a4fcd4c" class="numbered-list" start="1">
+				<li><strong>Preparación del entorno</strong>
+					<ul id="26a16835-31a7-801d-921d-cf1a57e2314a" class="bulleted-list">
+						<li style="list-style-type:disc">Configuracion inicial</li>
+					</ul>
+				</li>
+			</ol>
+			<ol type="1" id="26a16835-31a7-8090-9b21-c483f2f46ed2" class="numbered-list" start="2">
+				<li><strong>Sección 1: HTML/CSS/JS</strong>
+					<ul id="26a16835-31a7-80ef-862d-e86dbd30884e" class="bulleted-list">
+						<li style="list-style-type:disc">Logica del lado del cliente</li>
+					</ul>
+				</li>
+			</ol>
+			<ol type="1" id="26a16835-31a7-8035-89cc-db49a747ca27" class="numbered-list" start="3">
+				<li><strong>Sección 2: PHP</strong>
+					<ul id="26a16835-31a7-80d1-aade-c7a358197105" class="bulleted-list">
+						<li style="list-style-type:disc">Logica del backend</li>
+					</ul>
+				</li>
+			</ol>
+			<ol type="1" id="26a16835-31a7-8086-84f3-cc483af7f7d9" class="numbered-list" start="4">
+				<li><strong>Sección 3: SQL</strong>
+					<ul id="26a16835-31a7-801f-bebd-dd217a7cd990" class="bulleted-list">
+						<li style="list-style-type:disc">Consultas y scripts usados</li>
+					</ul>
+				</li>
+			</ol>
+			<ol type="1" id="26a16835-31a7-80c9-8853-c725fc089448" class="numbered-list" start="5">
+				<li><strong>Sección 4: Python</strong>
+					<ul id="26a16835-31a7-8082-a17a-e978ed621332" class="bulleted-list">
+						<li style="list-style-type:disc">Scripts auxiliares</li>
+					</ul>
+				</li>
+			</ol>
+			<ol type="1" id="26a16835-31a7-800f-afcd-c00c7fde648c" class="numbered-list" start="6">
+				<li><strong>Preguntas teóricas</strong>
+					<ul id="26a16835-31a7-80ff-9304-ff6be134e497" class="bulleted-list">
+						<li style="list-style-type:disc">Respuestas</li>
+					</ul>
+				</li>
+			</ol>
+			<ol type="1" id="26a16835-31a7-8013-9db8-ca6ec2aae8b9" class="numbered-list" start="7">
+				<li><strong>Conclusiones</strong>
+					<ul id="26a16835-31a7-8029-83ff-d4f252d8b949" class="bulleted-list">
+						<li style="list-style-type:disc">Tiempo total invertido</li>
+					</ul>
+				</li>
+			</ol>
+			<p id="26a16835-31a7-8037-b02e-e5f838d97e8b" class="">
+			</p>
+			<h2 id="26a16835-31a7-8060-b2a3-da01e94ae04f" class=""><strong>1. Preparación del entorno</strong></h2>
+			<ul id="26a16835-31a7-8039-8000-d38043d69dec" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Objetivo:</strong> Por fines practicos, toda la prueba se
+					realizará en un servidor Linux con <strong>Ubuntu Server 24</strong>, utilizando <strong>PHP
+						8.3</strong> y <strong>MySQL 8</strong> previamente instalados.</li>
+			</ul>
+			<ul id="26a16835-31a7-80a1-ac87-c565998090a0" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Tiempo estimado:</strong> 10-15 min.</li>
+			</ul>
+			<p id="26a16835-31a7-80f9-8400-d82197f8ca47" class="">
+			</p>
+			<ul id="26a16835-31a7-8012-b78b-d1a1972c3b30" class="bulleted-list">
+				<li style="list-style-type:disc">Hora inicio</li>
+			</ul>
+			<figure id="26a16835-31a7-8073-9f59-e363ced76cd4" class="image"><a href="image%201.png"><img
+						style="width:576px" src="image%201.png" /></a></figure>
+			<ul id="26a16835-31a7-805e-9b3f-e143a69cb21c" class="bulleted-list">
+				<li style="list-style-type:disc">Hora fin</li>
+			</ul>
+			<figure id="26a16835-31a7-80fe-97b9-da28efac5e0e" class="image"><a href="image%202.png"><img
+						style="width:576px" src="image%202.png" /></a></figure>
+			<p id="26a16835-31a7-80f4-8810-db79447aacf9" class="">
+			</p>
+			<p id="26a16835-31a7-803c-9103-e8e2da14f69e" class="">
+			</p>
+			<figure id="26a16835-31a7-8006-ac82-f46c5fe0bcb0" class="image"><a href="image%203.png"><img
+						style="width:624px" src="image%203.png" /></a>
+				<figcaption>Se crea toda la estructura del proyecto con archivos vacios, se estructuran las carpetas y
+					archivos como lo solicito el documento</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8043-8184-e88f40fa4f45" class="">
+			</p>
+			<figure id="26a16835-31a7-8073-9672-ec7bc343b723" class="image"><a href="image%204.png"><img
+						style="width:384px" src="image%204.png" /></a>
+				<figcaption>Resultado de la creacion de archivos y carpetas</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80fe-96d0-fb563221bb47" class="">
+			</p>
+			<figure id="26a16835-31a7-80f8-a811-dc236a1e832a" class="image"><a href="image%205.png"><img
+						style="width:576px" src="image%205.png" /></a>
+				<figcaption>Se crea el .gitignore desde el primer momento para no tener problemas despues</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80c5-ace0-ea0a24344803" class="">
+			</p>
+			<figure id="26a16835-31a7-805c-b223-ea3f45a53680" class="image"><a href="image%206.png"><img
+						style="width:576px" src="image%206.png" /></a>
+				<figcaption>Se realiza el first commit</figcaption>
+			</figure>
+			<p id="26a16835-31a7-806b-bbbb-f3cb2f98ee2b" class="">
+			</p>
+			<figure id="26a16835-31a7-803e-92f5-dd42452decef" class="image"><a href="image%207.png"><img
+						style="width:528px" src="image%207.png" /></a>
+				<figcaption>Sincronizamos con github desde la terminal y usando SSH para que sea mas practico
+				</figcaption>
+			</figure>
+			<p id="26a16835-31a7-804a-a392-e2fb0ad4b262" class="">
+			</p>
+			<figure id="26a16835-31a7-8002-ab15-ca75cf40c2f7" class="image"><a href="image%208.png"><img
+						style="width:576px" src="image%208.png" /></a>
+				<figcaption>Se crea el README con una descripcion simple</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80dc-8cda-f47fcb9d8eb9" class="">
+			</p>
+			<figure id="26a16835-31a7-80f4-9cd3-fa085a32937c" class="image"><a href="image%209.png"><img
+						style="width:576px" src="image%209.png" /></a>
+				<figcaption>Se pega el contenido del template que se le pidio a la IA para arreglarlo una vez todo este
+					implementado.</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8042-a1fa-f613b6ff57b9" class="">
+			</p>
+			<figure id="26a16835-31a7-8004-af72-e434130e105b" class="image"><a href="image%2010.png"><img
+						style="width:576px" src="image%2010.png" /></a>
+				<figcaption>se crea la rama para el frontend y backend de la prueba, donde se creara un formulario que
+					enviara datos a nuestro futuro backend</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8005-89a1-cac406839ad6" class="">
+			</p>
+			<figure id="26a16835-31a7-80f9-98ee-cc44b73bea27" class="image"><a href="image%2011.png"><img
+						style="width:576px" src="image%2011.png" /></a>
+				<figcaption>Se crea la rama para la seccion de scripting python y sql</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8039-b158-d8f332aace7d" class="">
+			</p>
+			<p id="26a16835-31a7-8092-9c36-df31abcdf92f" class="">
+			</p>
+			<h2 id="26a16835-31a7-8074-b44d-f5750f7b686e" class=""><strong>2. HTML / CSS / JS</strong></h2>
+			<p id="26a16835-31a7-800a-a934-dd740d6134b4" class=""><strong>Formato:</strong></p>
+			<ul id="26a16835-31a7-80cc-8916-ee5f2f96a151" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Objetivo:</strong> Crear la estructura completa del frontend
+					con tecnologias web, siguiendo buenas practicas con HTML5 semantico y JS Vanilla. Se agregan algunas
+					validaciones y se usa fetch para enviar datos al backend</li>
+			</ul>
+			<ul id="26a16835-31a7-8096-9ac0-e2cf3f3c1abc" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Tiempo estimado: </strong>25-30 min</li>
+			</ul>
+			<figure id="26a16835-31a7-803b-ab98-f297b1c26293" class="image"><a href="image%2012.png"><img
+						style="width:709.984375px" src="image%2012.png" /></a>
+				<figcaption>Se empieza a utilizar Visual Studio Code en su version Web por fines practicos.</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8032-a57f-fb469d6c1df1" class="">
+			</p>
+			<ul id="26a16835-31a7-80c8-9dab-ff61f170b297" class="bulleted-list">
+				<li style="list-style-type:disc">Hora inicio</li>
+			</ul>
+			<figure id="26a16835-31a7-80b7-b26c-ea2fead27db9" class="image"><a href="image%2013.png"><img
+						style="width:576px" src="image%2013.png" /></a></figure>
+			<ul id="26a16835-31a7-804d-bffa-c7356df43f28" class="bulleted-list">
+				<li style="list-style-type:disc">Hora fin</li>
+			</ul>
+			<figure id="26a16835-31a7-80d9-b74f-ff37be23d54a" class="image"><a href="image%2014.png"><img
+						style="width:576px" src="image%2014.png" /></a></figure>
+			<p id="26a16835-31a7-8090-b748-c2bb431d3e76" class="">
+			</p>
+			<p id="26a16835-31a7-8058-ba93-e0f28b9d6177" class="">
+			</p>
+			<figure id="26a16835-31a7-80a7-913a-e28cc80c18fa" class="image"><a href="image%2015.png"><img
+						style="width:576px" src="image%2015.png" /></a>
+				<figcaption>Nos cambiamos a la rama correspondiente para trabajar en la seccion de backend y frontend
+				</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8006-bd12-cfdc00e609fe" class="">
+			</p>
+			<figure id="26a16835-31a7-8057-8aae-c6a839758f19" class="image"><a href="image%2016.png"><img
+						style="width:624px" src="image%2016.png" /></a>
+				<figcaption>Usamos las extensiones de VSCode para preparar el archivo html y usamos reglas estrictas en
+					JS</figcaption>
+			</figure>
+			<p id="26a16835-31a7-801f-a1a4-cb9bf3c304c1" class="">
+			</p>
+			<figure id="26a16835-31a7-8040-afdd-d51eeec6aca6" class="image"><a href="image%2017.png"><img
+						style="width:624px" src="image%2017.png" /></a>
+				<figcaption>Se le pregunta a la IA para acelerar el flujo de desarrollo por un template basico en
+					javascript vanilla</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80be-808a-ed467a43bf70" class="">
+			</p>
+			<figure id="26a16835-31a7-8076-b3ff-dd7dd9f96f2f" class="image"><a href="image%2018.png"><img
+						style="width:624px" src="image%2018.png" /></a>
+				<figcaption>Se copia el codigo y procede a revisar en el VSCode, viendo posibles vulnerabilidades o
+					errores que la IA haya cometido.</figcaption>
+			</figure>
+			<p id="26a16835-31a7-807a-94a4-ceaba69a728f" class="">
+			</p>
+			<figure id="26a16835-31a7-80b9-a9ed-e2ff5781e239" class="image"><a href="image%2019.png"><img
+						style="width:576px" src="image%2019.png" /></a>
+				<figcaption>Checkpoint de tiempo</figcaption>
+			</figure>
+			<p id="26a16835-31a7-807e-a8a3-c539b7b15141" class="">
+			</p>
+			<figure id="26a16835-31a7-8013-b922-df7e20e09794" class="image"><a href="image%2020.png"><img
+						style="width:576px" src="image%2020.png" /></a>
+				<figcaption>Se tiene un template inicial que la IA nos proporciona y queda arreglarlo para que se
+					parezca a la imagen del documento</figcaption>
+			</figure>
+			<p id="26a16835-31a7-806c-b7d4-ecb72bcbbbf2" class="">
+			</p>
+			<figure id="26a16835-31a7-80ad-924a-c057a4fa8625" class="image"><a href="image%2021.png"><img
+						style="width:576px" src="image%2021.png" /></a>
+				<figcaption>Revisando codigo generado por IA y realizando cambios para agregar las validaciones
+					correspondientes</figcaption>
+			</figure>
+			<figure id="26a16835-31a7-8003-b550-ef0567cbcfb4" class="image"><a href="image%2022.png"><img
+						style="width:576px" src="image%2022.png" /></a>
+				<figcaption>Testeando el frontend con las validaciones implementadas</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80b0-b33f-c396820d5a75" class="">
+			</p>
+			<figure id="26a16835-31a7-805d-93e3-f84f6eb04864" class="image"><a href="image%2023.png"><img
+						style="width:624px" src="image%2023.png" /></a>
+				<figcaption>Test completado, validando el boton de check de terminos y condiciones.</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80bf-ba9f-e315523f2ab2" class="">
+			</p>
+			<figure id="26a16835-31a7-803b-aea2-d8985524ed8f" class="image"><a href="image%2024.png"><img
+						style="width:576px" src="image%2024.png" /></a>
+				<figcaption>Vision del footer</figcaption>
+			</figure>
+			<p id="26a16835-31a7-802e-be9b-e1608efac287" class="">
+			</p>
+			<h2 id="26a16835-31a7-80ce-bdca-e52ccd38404d" class=""><strong>3. PHP</strong></h2>
+			<ul id="26a16835-31a7-80d8-9fbc-ede350cf2a18" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Objetivo:</strong> levantar un servidor PHP que reciba los
+					datos en POST y los guarde en la tabla usuarios</li>
+			</ul>
+			<ul id="26a16835-31a7-807f-b02b-dfe0d7bf3152" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Tiempo estimado:</strong> 45 min.</li>
+			</ul>
+			<ul id="26a16835-31a7-800f-b98d-da149acc72ea" class="bulleted-list">
+				<li style="list-style-type:disc">Hora inicio</li>
+			</ul>
+			<figure id="26a16835-31a7-805e-bfc1-eb0bb41b3604" class="image"><a href="image%2025.png"><img
+						style="width:528px" src="image%2025.png" /></a></figure>
+			<ul id="26a16835-31a7-8006-bfa3-e39a8d4b5b1a" class="bulleted-list">
+				<li style="list-style-type:disc">Hora final</li>
+			</ul>
+			<figure id="26a16835-31a7-803d-88aa-db5647e0ec7e" class="image"><a href="image%2026.png"><img
+						style="width:528px" src="image%2026.png" /></a></figure>
+			<p id="26a16835-31a7-80b0-beef-c1140d546184" class="">
+			</p>
+			<figure id="26a16835-31a7-80b1-be8f-c12681c8f2e3" class="image"><a href="image%2027.png"><img
+						style="width:624px" src="image%2027.png" /></a>
+				<figcaption>Empiezo creando la base de datos en VSCode para luego ir a Workbench</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80e5-982b-c358973ce788" class="">
+			</p>
+			<figure id="26a16835-31a7-8079-9202-c84e710fb89f" class="image"><a href="image%2028.png"><img
+						style="width:480px" src="image%2028.png" /></a>
+				<figcaption>Se crea la base de datos en MySQL Workbench</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80c3-9e5b-f46045ecf668" class="">
+			</p>
+			<figure id="26a16835-31a7-80b4-a795-c202989f1696" class="image"><a href="image%2029.png"><img
+						style="width:709.984375px" src="image%2029.png" /></a>
+				<figcaption>creamos funcion para cargar el .env sin librerias</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8009-85ff-c3518f495444" class="">
+			</p>
+			<figure id="26a16835-31a7-8016-8c59-e93075e3eabf" class="image"><a href="image%2030.png"><img
+						style="width:709.984375px" src="image%2030.png" /></a>
+				<figcaption>creando script php para probar conexion con base de datos y hacer pruebas</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80b0-b1c5-d30c9fd125ba" class="">
+			</p>
+			<figure id="26a16835-31a7-80bc-a8f3-f4140f5b5726" class="image"><a href="image%2031.png"><img
+						style="width:709.984375px" src="image%2031.png" /></a>
+				<figcaption>Creacion de usuario en el servidor MySQL especificamente para este backend</figcaption>
+			</figure>
+			<p id="26a16835-31a7-800b-98cc-cfd521eaa054" class="">
+			</p>
+			<div id="26a16835-31a7-802d-b031-f709f1dcd446" class="column-list">
+				<div id="26a16835-31a7-80e5-a579-f64b5dd0c1f6" style="width:50%" class="column">
+					<figure id="26a16835-31a7-8093-9d2f-cf828a79b932" class="image"><a
+							href="01881fb7-06d5-46f3-868f-2092ba2a2f5f.png"><img style="width:390.5967450271247px"
+								src="01881fb7-06d5-46f3-868f-2092ba2a2f5f.png" /></a>
+						<figcaption>Se levanta servidor PHP con el comando: php -S</figcaption>
+					</figure>
+				</div>
+				<div id="26a16835-31a7-80f3-981c-c156dc14c6df" style="width:50%" class="column">
+					<p id="26a16835-31a7-8044-9774-f9f47e6403cb" class="">
+					</p>
+					<figure id="26a16835-31a7-801e-b2f4-d986472e5c3b" class="image"><a
+							href="ad62aefd-b926-4833-8272-62158fe323f9.png"><img style="width:336px"
+								src="ad62aefd-b926-4833-8272-62158fe323f9.png" /></a>
+						<figcaption>Se testea la conexion con la base de datos</figcaption>
+					</figure>
+					<p id="26a16835-31a7-8002-af50-e59c679fe20e" class="">
+					</p>
+					<p id="26a16835-31a7-80e4-93e0-fd20e76416c4" class="">
+					</p>
+				</div>
+			</div>
+			<p id="26a16835-31a7-8068-9587-d0f967a3ac09" class="">
+			</p>
+			<figure id="26a16835-31a7-804b-a7fb-c01c4fe27fb1" class="image"><a href="image%2032.png"><img
+						style="width:672px" src="image%2032.png" /></a>
+				<figcaption>Creando funciones de ayuda para el desarrollo de la api, funciones para sanitizar data,
+					manejar respuestas JSON, etc</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8084-94f4-d3f1c6e03312" class="">
+			</p>
+			<figure id="26a16835-31a7-80fa-982e-df317fc50ef6" class="image"><a href="image%2033.png"><img
+						style="width:624px" src="image%2033.png" /></a>
+				<figcaption>Checkpoint de tiempo</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80d1-b0ca-e090e521446c" class="">
+			</p>
+			<div id="26a16835-31a7-804a-abe9-f3a96d4b2708" class="column-list">
+				<div id="26a16835-31a7-80ce-96cb-e5fc5767ed68" style="width:43.75%" class="column">
+					<figure id="26a16835-31a7-8052-b42c-d6c2f8aa7e45" class="image"><a
+							href="d5a3298e-3e81-40ee-931b-aec247114658.png"><img style="width:710px"
+								src="d5a3298e-3e81-40ee-931b-aec247114658.png" /></a>
+						<figcaption>Revisando que solo POST permitiera</figcaption>
+					</figure>
+				</div>
+				<div id="26a16835-31a7-803d-882b-fcaddb97ffa7" style="width:56.25%" class="column">
+					<figure id="26a16835-31a7-80c4-8080-e5ff7522f61d" class="image"><a
+							href="fcd1857e-b637-4370-9e77-c54c0e4cbebc.png"><img style="width:710px"
+								src="fcd1857e-b637-4370-9e77-c54c0e4cbebc.png" /></a>
+						<figcaption>Revisando la validacion de la API (fueron cambiando)</figcaption>
+					</figure>
+					<p id="26a16835-31a7-8000-9d5b-cb160f73d725" class="">
+					</p>
+				</div>
+			</div>
+			<p id="26a16835-31a7-804a-adc5-ed70f3314a14" class="">
+			</p>
+			<figure id="26a16835-31a7-8086-81a6-c48836d97a70" class="image"><a href="image%2034.png"><img
+						style="width:576px" src="image%2034.png" /></a>
+				<figcaption>Descomentar codigo del frontend para prueba final de integracion con la API</figcaption>
+			</figure>
+			<p id="26a16835-31a7-800c-959c-f62438cdc7f9" class="">
+			</p>
+			<figure id="26a16835-31a7-80d1-b1a0-c95db8c080df" class="image"><a href="image%2035.png"><img
+						style="width:624px" src="image%2035.png" /></a>
+				<figcaption>Realizando pruebas, encontrando errores a la hora de integrar, CORS, cambiando codigo en
+					ambos lugares</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8067-8399-c8f3f6005dac" class="">
+			</p>
+			<figure id="26a16835-31a7-806d-9059-f7378ff6df3d" class="image"><a href="image%2036.png"><img
+						style="width:528px" src="image%2036.png" /></a>
+				<figcaption>Se corrigen errores del backend<br /></figcaption>
+			</figure>
+			<figure id="26a16835-31a7-800b-ac11-c379742af0d5" class="image"><a href="image%2037.png"><img
+						style="width:480px" src="image%2037.png" /></a>
+				<figcaption>Revisando validaciones del lado del cliente</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80bc-b15f-e76ec81e0dcc" class="">
+			</p>
+			<figure id="26a16835-31a7-80f0-bc8a-ccd410f8f534" class="image"><a href="image%2038.png"><img
+						style="width:624px" src="image%2038.png" /></a>
+				<figcaption>Checkpoint de tiempo</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8089-86eb-d567c01b298d" class="">
+			</p>
+			<figure id="26a16835-31a7-8083-a827-f4933c008d5f" class="image"><a href="image%2039.png"><img
+						style="width:624px" src="image%2039.png" /></a>
+				<figcaption>Preparando data en el frontend y revisando en Dev Tools</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80f3-8cce-f32bddfba631" class="">
+			</p>
+			<figure id="26a16835-31a7-8011-891d-cbae84457c1a" class="image"><a href="image%2040.png"><img
+						style="width:624px" src="image%2040.png" /></a>
+				<figcaption>Integracion completa (frontend+backend) en 1:30 hrs *incluye responder algunas preguntas
+				</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8010-aae9-f6d868f7dccf" class="">
+			</p>
+			<figure id="26a16835-31a7-80c8-9437-fef4f94b782f" class="image"><a href="image%2041.png"><img
+						style="width:624px" src="image%2041.png" /></a>
+				<figcaption>Verificacion en la base de datos → API Funcionando al 100%</figcaption>
+			</figure>
+			<p id="26a16835-31a7-804e-bc0b-e76f202d4c3a" class="">
+			</p>
+			<h2 id="26a16835-31a7-8002-840f-fdee5e12b99c" class=""><strong>4. SQL</strong></h2>
+			<ul id="26a16835-31a7-8096-a1ae-f3599ea90414" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Objetivo:</strong> Cargar scripts y escribir algunas consultas
+				</li>
+			</ul>
+			<ul id="26a16835-31a7-8093-afb2-ff81ae8e3010" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Tiempo estimado:</strong> 15min.<br /></li>
+			</ul>
+			<ul id="26a16835-31a7-8020-9d18-db2641644421" class="bulleted-list">
+				<li style="list-style-type:disc">Hora inicio</li>
+			</ul>
+			<figure id="26a16835-31a7-805a-941e-df69e09fc070" class="image"><a href="image%2042.png"><img
+						style="width:432px" src="image%2042.png" /></a></figure>
+			<ul id="26a16835-31a7-801b-b940-e0d7efc37581" class="bulleted-list">
+				<li style="list-style-type:disc">Hora fin</li>
+			</ul>
+			<figure id="26a16835-31a7-80cb-9ad7-c70e9a68c2ab" class="image"><a href="image%2043.png"><img
+						style="width:432px" src="image%2043.png" /></a></figure>
+			<p id="26a16835-31a7-80e8-87f3-d776e9e75335" class="">
+			</p>
+			<figure id="26a16835-31a7-8072-b477-d3742f4f8c61" class="image"><a href="image%2044.png"><img
+						style="width:710px" src="image%2044.png" /></a>
+				<figcaption>Se copia el contenido SQL del documento Word para hacer la prueba de insercion de data
+				</figcaption>
+			</figure>
+			<p id="26a16835-31a7-802a-916d-d94adb0787eb" class="">
+			</p>
+			<figure id="26a16835-31a7-8051-83ae-da707f2341a9" class="image"><a href="image%2045.png"><img
+						style="width:710px" src="image%2045.png" /></a>
+				<figcaption>Datos insertados correctamente</figcaption>
+			</figure>
+			<p id="26a16835-31a7-80f6-8d1d-c0dfa98c969a" class="">
+			</p>
+			<p id="26a16835-31a7-8018-a80c-ef6ff43f26ff" class="">1. Usuarios registrados últimos 30 días.</p>
+			<figure id="26a16835-31a7-80d7-ad6b-dc5b536e934d" class="image"><a href="image%2046.png"><img
+						style="width:709.984375px" src="image%2046.png" /></a></figure>
+			<p id="26a16835-31a7-80bd-b32f-e857faadbf27" class="">2. Contar usuarios con correo @gmail.com.</p>
+			<figure id="26a16835-31a7-80d8-97c2-f8a6efe88a55" class="image"><a href="image%2047.png"><img
+						style="width:665px" src="image%2047.png" /></a></figure>
+			<p id="26a16835-31a7-8052-a5dd-f61e903ec3a7" class="">3. Actualizar nombre de usuario con id=10.</p>
+			<figure id="26a16835-31a7-80a0-b68f-c683f9c67bc7" class="image"><a href="image%2048.png"><img
+						style="width:709.96875px" src="image%2048.png" /></a></figure>
+			<p id="26a16835-31a7-80fd-9145-ccfe8785f618" class="">4. Eliminar usuario con id=15.</p>
+			<figure id="26a16835-31a7-8011-b547-ebe7cfcc76e0" class="image"><a href="image%2049.png"><img
+						style="width:709.984375px" src="image%2049.png" /></a></figure>
+			<p id="26a16835-31a7-809a-a036-f166cc406fa7" class="">
+			</p>
+			<h2 id="26a16835-31a7-80a6-b4c2-c22ef4abe1e0" class=""><strong>5. Python</strong></h2>
+			<ul id="26a16835-31a7-80fe-b3bf-d17bdd38d07c" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Objetivo:</strong> Escribir un script en Python que lea el CSV
+					productos_1000.csv con productos (nombre, precio, stock) y muestre:<ul
+						id="26a16835-31a7-8042-8533-eba88089af8b" class="bulleted-list">
+						<li style="list-style-type:circle">Promedio de precios.</li>
+					</ul>
+					<ul id="26a16835-31a7-8096-84c4-e0cc4a3c60f9" class="bulleted-list">
+						<li style="list-style-type:circle">Producto con mayor stock.</li>
+					</ul>
+					<ul id="26a16835-31a7-806a-92af-ef28577c8e22" class="bulleted-list">
+						<li style="list-style-type:circle">Total de productos.</li>
+					</ul>
+				</li>
+			</ul>
+			<ul id="26a16835-31a7-80ad-929e-fec825c8ae93" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Tiempo estimado:</strong> 15 min.</li>
+			</ul>
+			<p id="26a16835-31a7-80a6-864e-eba73254c711" class="">
+			</p>
+			<ul id="26a16835-31a7-80d5-a17e-ee5a211d2692" class="bulleted-list">
+				<li style="list-style-type:disc">Hora inicio</li>
+			</ul>
+			<figure id="26a16835-31a7-8081-83ef-dcfc1942714b" class="image"><a href="image%2050.png"><img
+						style="width:480px" src="image%2050.png" /></a></figure>
+			<ul id="26a16835-31a7-806a-b7a9-f325f3c7b2f2" class="bulleted-list">
+				<li style="list-style-type:disc">Hora fin</li>
+			</ul>
+			<figure id="26a16835-31a7-80f5-8b18-e8b392f939f4" class="image"><a href="image%2051.png"><img
+						style="width:480px" src="image%2051.png" /></a></figure>
+			<p id="26a16835-31a7-8030-9c94-cee4954a426b" class="">
+			</p>
+			<p id="26a16835-31a7-8088-ad4e-e08b4268add6" class="">
+			</p>
+			<figure id="26a16835-31a7-80fe-bc55-fb11fd8f1324" class="image"><a href="image%2052.png"><img
+						style="width:709.984375px" src="image%2052.png" /></a>
+				<figcaption>Instalando pandas con el enviroment de python activado</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8069-a9c6-d16f6065514f" class="">
+			</p>
+			<figure id="26a16835-31a7-80a3-8411-e16b0660b6e6" class="image"><a href="image%2053.png"><img
+						style="width:709.96875px" src="image%2053.png" /></a>
+				<figcaption>Realizando el script de python, haciendo pruebas con el CSV proporcionado para la prueba
+					tecnica.</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8018-9f54-cd2ba4e661f2" class="">
+			</p>
+			<figure id="26a16835-31a7-80fa-8c41-dd79581cfdd6" class="image"><a href="image%2054.png"><img
+						style="width:709.984375px" src="image%2054.png" /></a>
+				<figcaption>Revisando logs y que la informacion fuera correcta</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8067-b0c8-f2a47ae9f171" class="">
+			</p>
+			<figure id="26a16835-31a7-80b8-a235-eece008a687a" class="image"><a href="image%2055.png"><img
+						style="width:709.96875px" src="image%2055.png" /></a>
+				<figcaption>Script final</figcaption>
+			</figure>
+			<p id="26a16835-31a7-8086-9818-d9aa32118852" class="">
+			</p>
+			<h2 id="26a16835-31a7-8061-80c7-c6aba3351262" class=""><strong>6. Preguntas teoricas</strong></h2>
+			<ul id="26a16835-31a7-80f2-b506-c4c6cc86a9dc" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Objetivo:</strong> Responder todas las preguntas teoricas</li>
+			</ul>
+			<details open="">
+				<summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Git</summary>
+				<div class="indented">
+					<p id="26a16835-31a7-80a8-a4e6-fc6573bc68e2" class=""><strong>a) Diferencia entre
+						</strong><code><strong>git merge</strong></code><strong> y
+						</strong><code><strong>git rebase</strong></code></p>
+					<ul id="26a16835-31a7-80e1-bbb3-ed7777b26f20" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>merge</strong>: une dos ramas creando un <em>merge
+								commit</em>; <strong>no reescribe</strong> la historia </li>
+					</ul>
+					<ul id="26a16835-31a7-80ef-8de4-ed7c1a116ae3" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>rebase</strong>: “reaplica” tus commits encima de otra
+							base; <strong>reescribe</strong> la historia</li>
+					</ul>
+					<ul id="26a16835-31a7-80bc-bf5b-e8d82e1a4b9a" class="bulleted-list">
+						<li style="list-style-type:disc">Buenas prácticas: usa <strong>merge</strong> para integrar
+							trabajo compartido; <strong>no</strong> rebases ramas ya publicadas. Rebase es útil para
+							limpiar historia local antes de integrar.</li>
+					</ul>
+					<p id="26a16835-31a7-80b0-ae16-d02270cb01c2" class=""><strong>b) ¿Qué hace
+						</strong><code><strong>git pull</strong></code><strong> y
+						</strong><code><strong>git fetch</strong></code><strong>?</strong></p>
+					<ul id="26a16835-31a7-805b-8dee-e8c571637211" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>fetch</strong>: descarga refs/commits del remoto sin
+							tocar el trabajo o tus avances actuales</li>
+					</ul>
+					<ul id="26a16835-31a7-80d5-b2cc-ec43a74ad6e2" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>pull</strong>: es <code>fetch</code> <strong>+</strong>
+							integra (merge o rebase) automáticamente en tu rama actual</li>
+					</ul>
+					<p id="26a16835-31a7-8001-8fcd-c3bbfb842754" class=""><strong>c) ¿Qué es un conflicto en Git y cómo
+							resolverlo?</strong></p>
+					<ul id="26a16835-31a7-80a0-8981-e03828f130a6" class="bulleted-list">
+						<li style="list-style-type:disc">Ocurre cuando Git no puede combinar cambios en las mismas
+							líneas/archivos.</li>
+					</ul>
+					<ul id="26a16835-31a7-800e-a531-d0682f574146" class="bulleted-list">
+						<li style="list-style-type:disc">Pasos: <code>git status</code> → abrir archivos con marcas
+							<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>/<code>=======</code>/<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>
+							→ decidir versión o combinar → <code>git add</code> → continuar
+							(<code>git merge --continue</code> o <code>git rebase --continue</code>) → commit.</li>
+					</ul>
+				</div>
+			</details>
+			<hr id="26a16835-31a7-80c1-ae4b-fac18ae5a6d9" />
+			<details open="">
+				<summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">HTML, CSS y JS</summary>
+				<div class="indented">
+					<p id="26a16835-31a7-8057-a4ab-f2173e41995b" class=""><strong>a) Etiquetas semánticas vs no
+							semánticas en HTML</strong></p>
+					<ul id="26a16835-31a7-8074-851e-ebf6a133f09d" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>Semánticas:</strong> describen propósito/contenido →
+							mejor <strong>accesibilidad</strong>, <strong>SEO</strong> y mantenibilidad.</li>
+					</ul>
+					<ul id="26a16835-31a7-80ba-94dc-eec511d4350c" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>No semánticas</strong>: no indican significado, solo
+							estructura/estilo.</li>
+					</ul>
+					<p id="26a16835-31a7-8019-b74b-c59f775a5db5" class=""><strong>b) Ventajas de usar Flexbox o Grid en
+							CSS</strong></p>
+					<ul id="26a16835-31a7-804d-9c28-c01759baff52" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>Flexbox</strong>: una dimensión (fila
+							<strong>o</strong> columna), alineación potente, distribución de espacio, ideal para barras,
+							cards, centrado vertical/horizontal.</li>
+					</ul>
+					<ul id="26a16835-31a7-8020-bd0e-f71abccf58f3" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>Grid</strong>: dos dimensiones (filas
+							<strong>y</strong> columnas), define áreas y <em>tracks</em>, ideal para
+							<strong>layouts</strong> de página complejos y responsivos.</li>
+					</ul>
+					<p id="26a16835-31a7-802f-9e32-cb1099cd7b8a" class=""><strong>c) Diferencia entre
+						</strong><code><strong>==</strong></code><strong> y
+						</strong><code><strong>===</strong></code><strong> en JavaScript</strong></p>
+					<ul id="26a16835-31a7-8059-be9a-e9d127027947" class="bulleted-list">
+						<li style="list-style-type:disc"><code>==</code> : hace <strong>coerción</strong> de tipos, se
+							recomienda no usarlo si se manejan varios tipos</li>
+					</ul>
+					<ul id="26a16835-31a7-80ff-9a3b-c45a0f0f30f6" class="bulleted-list">
+						<li style="list-style-type:disc"><code>===</code>: <strong>no</strong> hay coerción; compara
+							valor <strong>y</strong> tipo. Recomendado</li>
+					</ul>
+					<p id="26a16835-31a7-8010-b99c-c72429f13557" class=""><strong>d) ¿Qué es el DOM y cómo manipularlo
+							con JS?</strong></p>
+					<ul id="26a16835-31a7-808f-bcc6-fd31f268f336" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>DOM</strong>: representación en árbol de la página
+							cacheada en memoria</li>
+					</ul>
+					<ul id="26a16835-31a7-8073-b8eb-e49f53e2daa3" class="bulleted-list">
+						<li style="list-style-type:disc">Manipulación: seleccionar
+							(<code>querySelector</code>/<code>querySelectorAll</code>), crear
+							(<code>createElement</code>), insertar (<code>append</code>, <code>appendChild</code>),
+							modificar (<code>textContent</code>, <code>innerHTML</code>, <code>setAttribute</code>,
+							<code>classList</code>), eventos (<code>addEventListener</code>), delegación de eventos,
+							<code>dataset</code>.</li>
+					</ul>
+				</div>
+			</details>
+			<hr id="26a16835-31a7-8013-93da-ce74cda02b33" />
+			<details open="">
+				<summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">PHP</summary>
+				<div class="indented">
+					<p id="26a16835-31a7-80fe-9aec-f474a0447a1e" class=""><strong>a) Diferencia entre
+						</strong><code><strong>$_GET</strong></code><strong> y
+						</strong><code><strong>$_POST</strong></code></p>
+					<ul id="26a16835-31a7-80b8-bd88-e1938409003e" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>GET</strong>: envia los datos como parte de la URL, por
+							lo que se pueden ver en el navegador. Tiene tamaño limite y es usado para consultas o
+							filtros donde la información no es sensible </li>
+					</ul>
+					<ul id="26a16835-31a7-80d1-8ecf-e987f91f2499" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>POST</strong>: envian los datos en el cuerpo de la
+							petición, no se muestran en la URL y no tiene el mismo límite de tamaño. Es la opción
+							adecuada para formularios, credenciales o cualquier información que no debería ser pública.
+						</li>
+					</ul>
+					<p id="26a16835-31a7-8041-a0e4-f1569a7f7586" class=""><strong>b) ¿Por qué es importante usar
+						</strong><code><strong>password_hash</strong></code><strong>?</strong></p>
+					<ul id="26a16835-31a7-8039-b2e0-f2f537b86081" class="bulleted-list">
+						<li style="list-style-type:disc">Implementa algoritmos seguros que no son tan faciles de romper
+							con ataques de fuerza bruta u otros metodos de hacking.</li>
+					</ul>
+					<ul id="26a16835-31a7-800d-ba29-e487abe12afa" class="bulleted-list">
+						<li style="list-style-type:disc">Se verifica con <code>password_verify</code>. Muy facil y
+							rapido para un sistema de login</li>
+					</ul>
+				</div>
+			</details>
+			<hr id="26a16835-31a7-80ef-83a8-cd5af3587353" />
+			<details open="">
+				<summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">SQL</summary>
+				<div class="indented">
+					<p id="26a16835-31a7-80de-a520-fb6adc090b19" class=""><strong>a) Diferencia entre
+						</strong><code><strong>INNER JOIN</strong></code><strong> y
+						</strong><code><strong>LEFT JOIN</strong></code></p>
+					<ul id="26a16835-31a7-809d-a597-e0e3d83de566" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>INNER JOIN</strong>: te trae solo filas que tengan
+							coincidencia en ambas tablas.</li>
+					</ul>
+					<ul id="26a16835-31a7-80e4-822b-fae75f5ec155" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>LEFT JOIN</strong>: retorna <strong>todas </strong>las
+							filas de la tabla izquierda y las que coinciden de la otra tabla, si no hay nada que
+							coincide retorna null.</li>
+					</ul>
+					<p id="26a16835-31a7-804e-a523-d719f32a64e0" class=""><strong>b) Clave primaria vs clave
+							foránea</strong></p>
+					<ul id="26a16835-31a7-80f9-b185-ed10359ada0c" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>Clave primaria (PK)</strong>: identifica solamente una
+							fila (única, no nula). Suele estar indexada.</li>
+					</ul>
+					<ul id="26a16835-31a7-80aa-80c1-f54cb144739c" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>Clave foránea (FK)</strong>: referencia la llave
+							primaria de otra tabla, define <strong>relaciones</strong> entre tablas</li>
+					</ul>
+				</div>
+			</details>
+			<hr id="26a16835-31a7-80da-b29c-e246829e8508" />
+			<details open="">
+				<summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Python</summary>
+				<div class="indented">
+					<p id="26a16835-31a7-80ab-89bf-ea00246c126f" class=""><strong>a) ¿Qué ventajas tiene Python para
+							análisis de datos?</strong></p>
+					<ul id="26a16835-31a7-80a4-ba04-cf900cb0f968" class="bulleted-list">
+						<li style="list-style-type:disc">Un monton de librerias rapidas para analizar millones de datos,
+							mucho programador contribuyendo a la comunidad open source.</li>
+					</ul>
+					<ul id="26a16835-31a7-8079-956c-d22e67b75e0a" class="bulleted-list">
+						<li style="list-style-type:disc">Sintaxis simple, herramientas conocidas como Google Colab,
+							integración con C para performance, etc</li>
+					</ul>
+					<p id="26a16835-31a7-800e-8605-d2c1ca545f4e" class=""><strong>b) Diferencia entre lista y
+							diccionario</strong></p>
+					<ul id="26a16835-31a7-808d-a66c-cf4244e80cd9" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>Lista</strong> (<code>list</code>): colección
+							<strong>ordenada</strong>, indexada por la posicion, permite que haya duplicados…</li>
+					</ul>
+					<ul id="26a16835-31a7-80ff-8237-f261e94ef36b" class="bulleted-list">
+						<li style="list-style-type:disc"><strong>Diccionario</strong> (<code>dict</code>): colección al
+							estilo mongo, redis, todo con clave-valor, buen rendimiento en busquedas, puede usarse
+							claves unicas.</li>
+					</ul>
+					<p id="26a16835-31a7-80a6-b90a-f9581454adb7" class="">
+					</p>
+				</div>
+			</details>
+			<p id="26a16835-31a7-80f1-b0a7-d215e084ef97" class="">
+			</p>
+			<h2 id="26a16835-31a7-8085-8d3c-dc81a5c2bb42" class=""><strong>7. Conclusiones</strong></h2>
+			<ul id="26a16835-31a7-8056-a6e4-c58186d02f54" class="bulleted-list">
+				<li style="list-style-type:disc"><strong>Objetivo:</strong> dar mis propias conclusiones y un resumen
+					del tiempo invertido</li>
+			</ul>
+			<p id="26a16835-31a7-8024-9c8e-f79524ef82bf" class="">
+			</p>
+			<p id="26a16835-31a7-805f-aed9-de3b3bb62c9b" class="">Complete toda la prueba en unas dos horas, trabajando
+				en un servidor Ubuntu con un flujo completo de desarrollo. Hice un sitio web funcional con HTML5 usando
+				etiquetas modernas, Bootstrap, CSS y Javascript Vanilla, manteniendo el codigo simple. El backend en PHP
+				con MySQL quedo bien integrado con el frontend para manejar datos de forma segura. Tambien hice
+				consultas SQL y un script en Python para procesar un CSV con muchos datos. Todo lo maneje con Git usando
+				ramas separadas y luego las uni en main, manteniendo un flujo ordenado y realista de trabajo.</p>
+			<p id="26a16835-31a7-80b2-917f-d5889c082aef" class="">
+			</p>
+		</div>
+	</article><span class="sans" style="font-size:14px;padding-top:2em"></span>
+</body>
+
+</html>
